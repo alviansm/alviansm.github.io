@@ -1,0 +1,96 @@
+---
+layout: default
+title: Home
+---
+<!-- =========================
+     Featured Projects
+     ========================= -->
+
+<div class="section section-featured">
+  <h2>Featured Projects</h2>
+
+  <div class="featured-projects">
+    {% assign featured_projects = site.projects | where: "featured", true %}
+    {% for project in featured_projects %}
+      <div class="featured-project">
+        <a href="{{ project.url | relative_url }}">
+          <img
+            src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}"
+            alt="{{ project.title }}">
+        </a>
+
+        <div class="featured-project-text">
+          <h3>
+            <a href="{{ project.url | relative_url }}">
+              {{ project.title }}
+            </a>
+          </h3>
+
+          {% if project.short %}
+            <p>{{ project.short }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- =========================
+     Recent Projects
+     ========================= -->
+
+<h2>Recent Projects</h2>
+
+<ul class="project-list-compact">
+  {% assign recent_projects = site.projects | sort: "date" | reverse | slice: 0, 6 %}
+  {% for project in recent_projects %}
+    <li>
+      <img
+        src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}"
+        alt=""
+        class="project-thumb">
+
+      <a href="{{ project.url | relative_url }}">
+        {{ project.title }}
+      </a>
+
+      {% if project.short %}
+        – {{ project.short }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+
+<!-- =========================
+     News + Tags (two columns)
+     ========================= -->
+
+<div class="two-column plain-columns">
+
+  <!-- Project News -->
+  <div>
+    <h2>Project News</h2>
+    <ul>
+      {% for post in site.posts limit:5 %}
+        <li>
+          {{ post.date | date: "%Y-%m-%d" }} –
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Project Tags -->
+  <div>
+    <h2>Project Tags</h2>
+    <p class="tags">
+      {% assign all_tags = site.projects | map: "tags" | join: "," | split: "," | uniq | sort %}
+      {% for tag in all_tags %}
+        <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
+      {% endfor %}
+    </p>
+  </div>
+
+</div>
+

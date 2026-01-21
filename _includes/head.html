@@ -1,0 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
+  <meta name="google-site-verification" content="_ca3jG5B3XyXenTGh0310TTBQ45LqiRIJSspa08RFP4" />
+  
+  <link type="application/atom+xml" rel="alternate" href="{{ "/feed.xml" | relative_url }}" title="{{ site.title | escape }}" />
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>

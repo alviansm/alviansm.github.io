@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="gambar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.2926126"
+     inkscape:cx="329.56509"
+     inkscape:cy="183.73641"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Lapis 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#1f77b4;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-opacity:1"
+       x="63.754543"
+       y="19.978178"
+       id="text1"
+       inkscape:export-filename="text1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="fill:#1f77b4;fill-opacity:1;stroke:none;stroke-width:0.265;stroke-opacity:1"
+         x="63.754543"
+         y="19.978178">Planet X Concentric Layer Diagram</tspan></text>
+    <path
+       id="path1"
+       style="fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-width:0.264999"
+       d="m 96.72811,27.350667 a 36.895103,5.7894735 0 0 0 -36.8949,5.789311 v 15.484326 a 36.907894,5.7894735 0 0 0 0,0.0026 36.907894,5.7894735 0 0 0 36.90782,5.789311 36.907894,5.7894735 0 0 0 36.90782,-5.789311 36.907894,5.7894735 0 0 0 -0.0124,-0.150895 V 33.139978 h -0.0129 A 36.895103,5.7894735 0 0 0 96.72811,27.350667 Z" />
+    <ellipse
+       style="fill:#818181;fill-opacity:1;stroke:none;stroke-width:0.264953"
+       id="path1-8-1"
+       cx="96.728119"
+       cy="33.140137"
+       rx="36.895103"
+       ry="5.7894735" />
+    <ellipse
+       style="fill:#3a3a3a;fill-opacity:1;stroke:none;stroke-width:0.227658"
+       id="path1-8-1-2"
+       cx="96.728119"
+       cy="33.140137"
+       rx="31.812231"
+       ry="4.9572368" />
+    <ellipse
+       style="fill:#2ca02c;fill-opacity:1;stroke:none;stroke-width:0.179201"
+       id="path1-8-1-2-1"
+       cx="96.728119"
+       cy="33.140137"
+       rx="26.283844"
+       ry="3.7175908" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#d62728;stroke-width:0.216071;stroke-opacity:1"
+       d="M 96.850113,32.416034 90.186701,58.281007 H 80.615618"
+       id="path2"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#d62728;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-opacity:1"
+       x="60.19981"
+       y="59.279118"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-size:3.52778px;fill:#d62728;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="60.19981"
+         y="59.279118">Inner Layer</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ff7f0e;stroke-width:0.224352;stroke-opacity:1"
+       d="m 99.899186,45.441921 -5.941302,18.469156 -9.440363,0.104328"
+       id="path3"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;fill-opacity:1;stroke:#ff7f0e;stroke-width:0.264999;stroke-opacity:1"
+       x="63.047417"
+       y="64.929214"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="fill:#ff7f0e;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="63.047417"
+         y="64.929214">Outer Layer</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,92 @@
+---
+layout: default
+title: "Page Not Found"
+permalink: /404.html
+---
+
+<div style="text-align: center; padding: 4rem 0;">
+  <div style="font-size: 6rem; margin-bottom: 2rem;">🤔</div>
+  
+  <h1 style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">
+    404 - Page Not Found
+  </h1>
+  
+  <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+    Oops! The page you're looking for doesn't exist.
+  </p>
+  
+  <p style="color: var(--text-secondary); margin-bottom: 3rem;">
+    It might have been moved, deleted, or you entered the wrong URL.
+  </p>
+  
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="{{ "/" | relative_url }}" 
+       style="background-color: var(--accent-primary); 
+              color: white; 
+              padding: 0.75rem 1.5rem; 
+              text-decoration: none; 
+              border-radius: 8px; 
+              font-weight: 600;
+              transition: all 0.25s ease;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;">
+      🏠 Go Home
+    </a>
+    
+    <a href="{{ "/archive/" | relative_url }}" 
+       style="border: 2px solid var(--accent-primary); 
+              color: var(--accent-primary); 
+              background: transparent;
+              padding: 0.75rem 1.5rem; 
+              text-decoration: none; 
+              border-radius: 8px; 
+              font-weight: 600;
+              transition: all 0.25s ease;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;">
+      📚 Browse Archive
+    </a>
+  </div>
+  
+  <div style="margin-top: 3rem; padding: 2rem; background-color: var(--bg-secondary); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">What can you do?</h3>
+    <ul style="text-align: left; color: var(--text-secondary); line-height: 1.6;">
+      <li>Check the URL for typos</li>
+      <li>Go back to the <a href="{{ "/" | relative_url }}" style="color: var(--accent-primary);">homepage</a></li>
+      <li>Browse the <a href="{{ "/archive/" | relative_url }}" style="color: var(--accent-primary);">post archive</a></li>
+      <li>Use the search function in the header</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .site-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+  
+  a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem !important;
+    }
+    
+    div[style*="display: flex"] {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    div[style*="display: flex"] a {
+      width: 200px;
+      justify-content: center;
+    }
+  }
+</style>

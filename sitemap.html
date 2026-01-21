@@ -1,0 +1,427 @@
+---
+layout: default
+title: Sitemap
+permalink: /sitemap/
+---
+
+<div class="container main-content">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="page-header">
+        <h1>Site Map</h1>
+        <p class="lead">A complete overview of all content on Alvians' Notes</p>
+      </div>
+
+      <div class="sitemap-content">
+        <!-- Homepage -->
+        <div class="sitemap-section">
+          <h2><i class="glyphicon glyphicon-home"></i> <a href="{{ site.baseurl }}/">Homepage</a></h2>
+          <p class="section-description">Main landing page featuring latest posts and category highlights</p>
+          
+          <!-- Categories under Homepage -->
+          <div class="category-subsection">
+            <!-- Devlog Category -->
+            <h3><i class="glyphicon glyphicon-cog"></i> <a href="{{ site.baseurl }}/devlog/">Development Blog</a></h3>
+            <p class="category-description">Technical development posts, coding tutorials, and project updates</p>
+            {% if site.categories.Devlog.size > 0 %}
+            <ul class="post-list">
+              {% for post in site.categories.Devlog limit: 10 %}
+              <li>
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </li>
+              {% endfor %}
+              {% if site.categories.Devlog.size > 10 %}
+              <li class="view-all"><a href="{{ site.baseurl }}/devlog/">View all {{ site.categories.Devlog.size }} devlog posts →</a></li>
+              {% endif %}
+            </ul>
+            {% else %}
+            <p class="no-posts">No posts in this category yet.</p>
+            {% endif %}
+
+            <!-- Notes Category -->
+            <h3><i class="glyphicon glyphicon-edit"></i> <a href="{{ site.baseurl }}/notes/">Notes</a></h3>
+            <p class="category-description">Technical notes, learning resources, and reference materials</p>
+            {% if site.categories.Notes.size > 0 %}
+            <ul class="post-list">
+              {% for post in site.categories.Notes limit: 10 %}
+              <li>
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </li>
+              {% endfor %}
+              {% if site.categories.Notes.size > 10 %}
+              <li class="view-all"><a href="{{ site.baseurl }}/notes/">View all {{ site.categories.Notes.size }} notes →</a></li>
+              {% endif %}
+            </ul>
+            {% else %}
+            <p class="no-posts">No posts in this category yet.</p>
+            {% endif %}
+
+            <!-- Essay Category -->
+            <h3><i class="glyphicon glyphicon-book"></i> <a href="{{ site.baseurl }}/essay/">Essays</a></h3>
+            <p class="category-description">In-depth articles, thoughts, and analytical pieces</p>
+            {% if site.categories.Essay.size > 0 %}
+            <ul class="post-list">
+              {% for post in site.categories.Essay limit: 10 %}
+              <li>
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </li>
+              {% endfor %}
+              {% if site.categories.Essay.size > 10 %}
+              <li class="view-all"><a href="{{ site.baseurl }}/essay/">View all {{ site.categories.Essay.size }} essays →</a></li>
+              {% endif %}
+            </ul>
+            {% else %}
+            <p class="no-posts">No posts in this category yet.</p>
+            {% endif %}
+
+            <!-- Project Category -->
+            <h3><i class="glyphicon glyphicon-wrench"></i> <a href="{{ site.baseurl }}/project/">Projects</a></h3>
+            <p class="category-description">Software projects, marine engineering work, and portfolio pieces</p>
+            {% if site.categories.Project.size > 0 %}
+            <ul class="post-list">
+              {% for post in site.categories.Project limit: 10 %}
+              <li>
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </li>
+              {% endfor %}
+              {% if site.categories.Project.size > 10 %}
+              <li class="view-all"><a href="{{ site.baseurl }}/project/">View all {{ site.categories.Project.size }} projects →</a></li>
+              {% endif %}
+            </ul>
+            {% else %}
+            <p class="no-posts">No posts in this category yet.</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Other Pages -->
+        <div class="sitemap-section">
+          <h2><i class="glyphicon glyphicon-file"></i> Other Pages</h2>
+          <ul class="page-list">
+            <li><a href="{{ site.baseurl }}/about/">About</a> - Learn more about Alviansyah Maulana Iskandar</li>
+            <li><a href="{{ site.baseurl }}/tags.html">Tags</a> - Browse content by tags</li>
+            <li><a href="{{ site.baseurl }}/archive.html">Archive</a> - Complete chronological archive</li>
+            <li><a href="{{ site.baseurl }}/sitemap/">Sitemap</a> - This page</li>
+          </ul>
+        </div>
+
+        <!-- Uncategorized Posts -->
+        {% assign uncategorized_posts = site.posts | where_exp: "post", "post.categories.size == 0" %}
+        {% assign misc_posts = "" | split: "" %}
+        {% for post in site.posts %}
+          {% assign is_main_category = false %}
+          {% for category in post.categories %}
+            {% if category == "Devlog" or category == "Notes" or category == "Essay" or category == "Project" %}
+              {% assign is_main_category = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% unless is_main_category %}
+            {% assign misc_posts = misc_posts | push: post %}
+          {% endunless %}
+        {% endfor %}
+        
+        {% if misc_posts.size > 0 %}
+        <div class="sitemap-section">
+          <h2><i class="glyphicon glyphicon-list"></i> Other Posts</h2>
+          <p class="section-description">Posts that don't fit into the main categories</p>
+          <ul class="post-list">
+            {% for post in misc_posts limit: 20 %}
+            <li>
+              <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              {% if post.categories.size > 0 %}
+              <span class="post-categories">
+                {% for category in post.categories %}
+                <span class="category-tag">{{ category }}</span>
+                {% endfor %}
+              </span>
+              {% endif %}
+            </li>
+            {% endfor %}
+            {% if misc_posts.size > 20 %}
+            <li class="view-all"><a href="{{ site.baseurl }}/archive.html">View all posts in archive →</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <!-- Statistics -->
+        <div class="sitemap-stats">
+          <h3>Site Statistics</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">{{ site.posts.size }}</span>
+              <span class="stat-label">Total Posts</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ site.categories.Devlog.size }}</span>
+              <span class="stat-label">Devlog Posts</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ site.categories.Notes.size }}</span>
+              <span class="stat-label">Notes</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ site.categories.Essay.size }}</span>
+              <span class="stat-label">Essays</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ site.categories.Project.size }}</span>
+              <span class="stat-label">Projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.sitemap-content {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.sitemap-section {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.sitemap-section:last-child {
+  border-bottom: none;
+}
+
+.sitemap-section h2 {
+  color: var(--accent-color);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sitemap-section h2 i {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.section-description {
+  color: var(--muted-color);
+  font-style: italic;
+  margin-bottom: 25px;
+  font-size: 1.1em;
+}
+
+.category-subsection {
+  margin-left: 30px;
+  border-left: 3px solid var(--border-color);
+  padding-left: 25px;
+}
+
+.category-subsection h3 {
+  color: var(--text-color);
+  font-size: 1.4em;
+  margin: 30px 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-subsection h3:first-child {
+  margin-top: 20px;
+}
+
+.category-subsection h3 i {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.category-description {
+  color: var(--muted-color);
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-date {
+  color: var(--muted-color);
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.85em;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.post-list a {
+  color: var(--text-color);
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.post-list a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.post-categories {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.category-tag {
+  background-color: var(--border-color);
+  color: var(--text-color);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  font-weight: 500;
+}
+
+.view-all {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+.view-all a {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.no-posts {
+  color: var(--muted-color);
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+}
+
+.page-list li {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-list li:last-child {
+  border-bottom: none;
+}
+
+.page-list a {
+  color: var(--accent-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page-list a:hover {
+  text-decoration: underline;
+}
+
+.sitemap-stats {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 40px;
+  border: 1px solid var(--border-color);
+}
+
+.sitemap-stats h3 {
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--accent-color);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  color: var(--muted-color);
+  margin-top: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .category-subsection {
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+  
+  .post-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .post-date {
+    min-width: auto;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sitemap-section h2 {
+    font-size: 1.5em;
+  }
+  
+  .category-subsection h3 {
+    font-size: 1.2em;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.5em;
+  }
+}
+</style>

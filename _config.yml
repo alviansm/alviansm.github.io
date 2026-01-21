@@ -1,0 +1,149 @@
+# Site settings
+title: "alvians.com"
+email: contact@alvians.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Embedded System Engineer
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://alvians.com" # the base hostname & protocol for your site
+author: "Alvians Maulana"
+timezone: UTC
+google_analytics:
+
+google:
+  analytics:
+
+# Social Media
+social:
+instagram_username: 
+github_username: 
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    line_numbers: false
+    block:
+      line_numbers: false
+  math_engine: mathjax
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+
+# Liquid settings - FIXED for compatibility
+liquid:
+  error_mode: lax
+  strict_filters: false
+  strict_variables: false
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title/
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+      author: "Alvian Maulana"
+      image: "assets/images/default-post.jpg"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+      status: "Active"
+
+# SEO and Meta
+twitter:
+facebook:
+
+# Feed settings
+feed:
+  excerpt_only: true
+
+# Development settings
+livereload: true
+incremental: false
+
+# Production optimizations
+sass:
+  style: compressed
+  sourcemap: never
+
+# Custom variables for your theme
+site_nav:
+  - title: "Home"
+    url: "/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "News"
+    url: "/news/"
+  - title: "Tags"
+    url: "/tags.html"
+  - title: "About"
+    url: "/about/"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE.md
+  - CHANGELOG.md
+  - .gitignore
+  - .git/
+  - .github/
+  - docker-compose.yml
+  - Dockerfile
+  - package.json
+  - package-lock.json
+  - yarn.lock
+
+# Include files/folders that start with underscore
+include:
+  - .htaccess
+  - _pages
+  - _redirects

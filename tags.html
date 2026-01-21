@@ -1,0 +1,48 @@
+---
+layout: default
+title: Tags
+permalink: /tags.html
+---
+
+<p>
+Projects and news articles are grouped by tag.
+</p>
+
+<!-- =========================
+     Tag Index
+     ========================= -->
+
+<div class="section">
+  <h2>Tag Index</h2>
+
+  <p class="tags">
+    {% assign all_tags = site.tags | sort %}
+    {% for tag in all_tags %}
+      <a href="#{{ tag[0] }}">{{ tag[0] }}</a>
+    {% endfor %}
+  </p>
+</div>
+
+<!-- =========================
+     Tagged Content
+     ========================= -->
+
+{% for tag in site.tags %}
+  <div class="section" id="{{ tag[0] }}">
+    <h2>{{ tag[0] }}</h2>
+
+    <ul>
+      {% for post in tag[1] %}
+        <li>
+          {% if post.collection == "projects" %}
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <em>(project)</em>
+          {% else %}
+            {{ post.date | date: "%Y-%m-%d" }} –
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}

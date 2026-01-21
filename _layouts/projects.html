@@ -1,0 +1,70 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<p>
+This page lists all documented projects hosted on this site.
+</p>
+
+<!-- =========================
+     Active Projects
+     ========================= -->
+
+<div class="section">
+  <h2>Active Projects</h2>
+
+  <ul>
+    {% assign active_projects = site.projects | where: "status", "Active" | sort: "title" %}
+    {% for project in active_projects %}
+      <li>
+        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        {% if project.short %}
+          – {{ project.short }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- =========================
+     Inactive / Archived Projects
+     ========================= -->
+
+<div class="section">
+  <h2>Archived Projects</h2>
+
+  <ul>
+    {% assign archived_projects = site.projects | where: "status", "Archived" | sort: "title" %}
+    {% for project in archived_projects %}
+      <li>
+        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        {% if project.short %}
+          – {{ project.short }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if archived_projects.size == 0 %}
+    <p><em>No archived projects.</em></p>
+  {% endif %}
+</div>
+
+<!-- =========================
+     By Tag
+     ========================= -->
+
+<div class="section">
+  <h2>Projects by Tag</h2>
+
+  <ul>
+    {% assign all_tags = site.projects | map: "tags" | join: "," | split: "," | uniq | sort %}
+    {% for tag in all_tags %}
+      <li>
+        <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

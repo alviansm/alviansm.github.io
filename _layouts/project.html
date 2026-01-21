@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<article class="project-page">
+
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="project-description">
+        {{ page.description }}
+      </p>
+    {% endif %}
+
+    <div class="project-meta">
+      {% if page.status %}
+        <span>Status: {{ page.status }}</span>
+      {% endif %}
+
+      {% if page.date %}
+        <span>· {{ page.date | date: "%Y-%m" }}</span>
+      {% endif %}
+
+      {% if page.tags %}
+        <span>·
+          {% for tag in page.tags %}
+            <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="project-content">
+    {{ content }}
+  </div>
+
+</article>
