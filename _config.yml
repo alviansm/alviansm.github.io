@@ -3,8 +3,8 @@ title: "alvians.com"
 email: contact@alvians.com
 description: >- # this means to ignore newlines until "baseurl:"
   Embedded System Engineer
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://alvians.com" # the base hostname & protocol for your site
+baseurl: "/alvians-com" # the subpath of your site, e.g. /blog
+url: "https://alviansm.github.io" # the base hostname & protocol for your site
 author: "Alvians Maulana"
 timezone: UTC
 google_analytics:
