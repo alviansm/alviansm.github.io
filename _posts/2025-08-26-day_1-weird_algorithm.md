@@ -35,7 +35,7 @@ Output:
 ## Solution #1
 This is my first time trying CS problems from Marine Engineering background. Intuitively, I implemented them straight-forwardly using `while` loop and if-else conditional statement. I expected them to be that straightforward since it's **Introductory Problems**, but turn out it's not as simple as I tought earlier.
 
-```
+```cpp
 #include <iostream>
 
 int main()
