@@ -17,6 +17,7 @@ $section-bg: #eef1f4;
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *::before, *::after {
@@ -31,6 +32,9 @@ body {
   line-height: 1.5;
   color: $text-color;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 a {
@@ -50,6 +54,11 @@ a {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 6px;
+}
+
+main.container {
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 hr {
@@ -347,6 +356,10 @@ ul {
 
 @media (max-width: 700px) {
   .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .two-column {
     grid-template-columns: 1fr;
   }
 
