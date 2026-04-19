@@ -39,7 +39,12 @@ Projects and news articles are grouped by tag.
             <em>(project)</em>
           {% else %}
             {{ post.date | date: "%Y-%m-%d" }} –
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.attachment %}
+              <a href="{{ post.attachment | relative_url }}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>
+              <em>(Attachment)</em>
+            {% else %}
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% endif %}
           {% endif %}
         </li>
       {% endfor %}

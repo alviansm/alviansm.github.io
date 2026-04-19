@@ -81,7 +81,13 @@ layout: default
             {% for sp in matched_sub_posts %}
             <tr>
               <td>{{ forloop.index }}</td>
-              <td><a href="{{ sp.url | relative_url }}">{{ sp.title }}</a></td>
+              <td>
+                {% if sp.attachment %}
+                <a href="{{ sp.attachment | relative_url }}" target="_blank" rel="noopener noreferrer">{{ sp.title }} <em>(Attachment)</em></a>
+                {% else %}
+                <a href="{{ sp.url | relative_url }}">{{ sp.title }}</a>
+                {% endif %}
+              </td>
               <td>{{ sp.description | default: sp.excerpt | strip_html | truncate: 100 }}</td>
             </tr>
             {% endfor %}
