@@ -14,6 +14,7 @@ team_size: "Solo Project"
 image: assets/images/iot-based-ems-pcm/cover-project-reefer.png
 demo_url: "https://frontend-iot-mms.vercel.app/"
 featured: true
+permalink: /archive/2025-01-01-eco-reefer-container/
 ---
 
 # (Legacy Project) Development of iot-based energy management system for hybrid refrigeration system in eco reefer container

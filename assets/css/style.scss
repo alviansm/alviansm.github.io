@@ -135,6 +135,17 @@ hr {
   line-height: 1.6;
 }
 
+/* =========================
+   Post / Project Content Images
+   ========================= */
+
+.post-content img,
+.project-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 /* =========================
    Footer legal (bottom)

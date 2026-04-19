@@ -58,10 +58,13 @@ liquid:
 collections:
   posts:
     output: true
-    permalink: /news/:year/:month/:day/:title/
+    permalink: /blog/:year/:month/:day/:title/
   projects:
     output: true
     permalink: /projects/:name/
+  archive:
+    output: true
+    permalink: /archive/:name/
 
 # Defaults
 defaults:
@@ -87,6 +90,11 @@ defaults:
     values:
       layout: "project"
       status: "Active"
+  - scope:
+      path: ""
+      type: "archive"
+    values:
+      layout: "archive-item"
 
 # SEO and Meta
 twitter:
@@ -111,8 +119,10 @@ site_nav:
     url: "/"
   - title: "Projects"
     url: "/projects/"
-  - title: "News"
-    url: "/news/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Archive"
+    url: "/archive/"
   - title: "Tags"
     url: "/tags.html"
   - title: "About"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Use SQLite Cipher into Qt (From SOurce)"
+title: "How to Use SQLite Cipher into Qt (From Source)"
 subtitle: "Practical Guide"
 date: 2025-07-15 10:00:00 +0000
 categories: [Devlog]
@@ -8,7 +8,7 @@ tags: [Qt, devlogs]
 author: "Alvians Maulana"
 image: assets/images/sqlcipher/jan-antonin-kolar-lRoX0shwjUQ-unsplash.jpg
 ---
-Sometimes when we want to ship our apps while we use an SQLite for the database and we don’t want end users to hack our app that rely on the DB, we need a method to safely store data even in the local machine. Unfortunately, SQLite doesn't have that feature, as for now. Well, I won’t go further for the chit chats since you should already know the why if you want to read this.
+Sometimes when we want to ship our apps while we use an SQLite for the database and we don’t want end users to hack our app that rely on the DB, we need a method to safely store data even in the local machine. Unfortunately, SQLite doesn't have that feature, as for now.
 
 ---
 ## 🧭 <span id="outline">Outline</span>
@@ -186,7 +186,6 @@ query.exec("PRAGMA cipher_version;");
 - https://www.qt.io/
 - https://github.com/sqlcipher/sqlcipher/releases/tag/v4.5.4
 
-Hey, in case our toolchain is the same, or the future me need it, just [download the .dll](assets/resource/qsqlite.dll).
+## Download
 
-Cover: Photo by <a href="https://unsplash.com/@jankolar?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jan Antonin Kolar</a> on <a href="https://unsplash.com/photos/brown-wooden-drawer-lRoX0shwjUQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-      
+MSVC22 Compiled: [download .dll](assets/resource/qsqlite.dll).

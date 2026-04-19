@@ -7,6 +7,7 @@ categories: [Devlog]
 tags: [ship stability]
 author: "Alvians Maulana"
 image: assets/images/shipstabilitylib/satish-dharmavarapu-8m-ZN9d34G4-unsplash.jpg
+permalink: /archive/2025-07-15-about-shipstabilitylib/
 ---
 
 **ShipStabilityLib** is a work-in-progress C++ library dedicated to modeling and computing fundamental concepts of ship stability, inspired by *Ship Stability for Masters and Mates*. It aims to provide a clear, modular, and well-documented API for anyone interested in marine engineering calculations—from basic buoyancy and equilibrium checks to more advanced stability assessments.

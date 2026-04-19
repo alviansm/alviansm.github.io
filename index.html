@@ -11,27 +11,30 @@ title: Home
 
   <div class="featured-projects">
     {% assign featured_projects = site.projects | where: "featured", true %}
+    {% if featured_projects.size > 0 %}
     {% for project in featured_projects %}
-      <div class="featured-project">
-        <a href="{{ project.url | relative_url }}">
-          <img
-            src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}"
-            alt="{{ project.title }}">
-        </a>
+    <div class="featured-project">
+      <a href="{{ project.url | relative_url }}">
+        <img src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}"
+          alt="{{ project.title }}">
+      </a>
 
-        <div class="featured-project-text">
-          <h3>
-            <a href="{{ project.url | relative_url }}">
-              {{ project.title }}
-            </a>
-          </h3>
+      <div class="featured-project-text">
+        <h3>
+          <a href="{{ project.url | relative_url }}">
+            {{ project.title }}
+          </a>
+        </h3>
 
-          {% if project.short %}
-            <p>{{ project.short }}</p>
-          {% endif %}
-        </div>
+        {% if project.short %}
+        <p>{{ project.short }}</p>
+        {% endif %}
       </div>
+    </div>
     {% endfor %}
+    {% else %}
+    <p><em>No featured projects at the moment.</em></p>
+    {% endif %}
   </div>
 </div>
 
@@ -41,56 +44,67 @@ title: Home
 
 <h2>Recent Projects</h2>
 
+{% assign recent_projects = site.projects | sort: "date" | reverse | slice: 0, 6 %}
+{% if recent_projects.size > 0 %}
 <ul class="project-list-compact">
-  {% assign recent_projects = site.projects | sort: "date" | reverse | slice: 0, 6 %}
   {% for project in recent_projects %}
-    <li>
-      <img
-        src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}"
-        alt=""
-        class="project-thumb">
+  <li>
+    <img src="{{ project.image | default: '/assets/images/placeholder-project.png' | relative_url }}" alt=""
+      class="project-thumb">
 
-      <a href="{{ project.url | relative_url }}">
-        {{ project.title }}
-      </a>
+    <a href="{{ project.url | relative_url }}">
+      {{ project.title }}
+    </a>
 
-      {% if project.short %}
-        – {{ project.short }}
-      {% endif %}
-    </li>
+    {% if project.short %}
+    – {{ project.short }}
+    {% endif %}
+  </li>
   {% endfor %}
 </ul>
+{% else %}
+<p><em>No recent projects at the moment.</em></p>
+{% endif %}
 
 
 <!-- =========================
-     News + Tags (two columns)
+     Blog + Tags (two columns)
      ========================= -->
 
 <div class="two-column plain-columns">
 
-  <!-- Project News -->
+  <!-- Blog -->
   <div>
-    <h2>Project News</h2>
+    <h2>Blog</h2>
+    {% if site.posts.size > 0 %}
     <ul>
       {% for post in site.posts limit:5 %}
-        <li>
-          {{ post.date | date: "%Y-%m-%d" }} –
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
+      <li>
+        {{ post.date | date: "%Y-%m-%d" }} –
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
       {% endfor %}
     </ul>
+    {% else %}
+    <p><em>No news at the moment.</em></p>
+    {% endif %}
   </div>
 
-  <!-- Project Tags -->
+  <!-- Tags -->
   <div>
-    <h2>Project Tags</h2>
+    <h2>Tags</h2>
+    {% assign project_tags = site.projects | map: "tags" | join: "," | split: "," %}
+    {% assign post_tags = site.posts | map: "tags" | join: "," | split: "," %}
+    {% assign all_tags = project_tags | concat: post_tags | uniq | sort %}
+    {% if all_tags.size > 0 %}
     <p class="tags">
-      {% assign all_tags = site.projects | map: "tags" | join: "," | split: "," | uniq | sort %}
       {% for tag in all_tags %}
-        <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
+      <a href="{{ " /tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
       {% endfor %}
     </p>
+    {% else %}
+    <p><em>No tags available at the moment.</em></p>
+    {% endif %}
   </div>
 
 </div>
-
