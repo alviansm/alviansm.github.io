@@ -65,7 +65,7 @@ Qt\6.8.3\Src\qtbase\src\plugins\sqldrivers\sqlite
 This ensures the plugin will be built against SQLCipher instead of regular SQLite.
 In my case, its
 
-```
+```cmake
 cmake_minimum_required(VERSION 3.21)
 project(QSQLiteDriverPlugin LANGUAGES C CXX)
 
