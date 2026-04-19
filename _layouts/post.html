@@ -8,20 +8,32 @@ layout: default
        Post Header
        ========================= -->
 
-  <h1>{{ page.title }}</h1>
+  <div class="post-header">
+    <h1>{{ page.title }}</h1>
 
-  <p>
-    <small>
-      {{ page.date | date: "%Y-%m-%d" }}
-      {% if page.author %}
-        · {{ page.author }}
+    <div class="post-meta">
+      <span class="post-meta-date">
+        {{ page.date | date: "%Y-%m-%d" }}
+        {% if page.author %}
+          · {{ page.author }}
+        {% endif %}
+      </span>
+
+      {% if page.tags %}
+        <span class="post-meta-tags">
+          {% for tag in page.tags %}
+            <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
+          {% endfor %}
+        </span>
       {% endif %}
-    </small>
-  </p>
+    </div>
 
-  {% if page.description %}
-    <p><strong>{{ page.description }}</strong></p>
-  {% endif %}
+    {% if page.description %}
+      <p class="post-description"><strong>{{ page.description }}</strong></p>
+    {% endif %}
+  </div>
+
+  <hr class="post-divider">
 
   <!-- =========================
        Related Project (optional)
@@ -44,21 +56,39 @@ layout: default
 
   <div class="post-content">
     {{ content }}
+
+    {% if page.subblog_source %}
+      {% assign sub_posts = site.posts | where: "sub_post", true %}
+      {% assign folder_path = "_posts/" | append: page.subblog_source %}
+      {% assign matched_sub_posts = "" | split: "" %}
+      {% for sp in sub_posts %}
+        {% if sp.path contains folder_path %}
+          {% assign matched_sub_posts = matched_sub_posts | push: sp %}
+        {% endif %}
+      {% endfor %}
+      {% assign matched_sub_posts = matched_sub_posts | sort: "date" %}
+
+      {% if matched_sub_posts.size > 0 %}
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sp in matched_sub_posts %}
+            <tr>
+              <td>{{ forloop.index }}</td>
+              <td><a href="{{ sp.url | relative_url }}">{{ sp.title }}</a></td>
+              <td>{{ sp.description | default: sp.excerpt | strip_html | truncate: 100 }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    {% endif %}
   </div>
-
-  <!-- =========================
-       Tags
-       ========================= -->
-
-  {% if page.tags %}
-    <div class="section">
-      <h2>Tags</h2>
-      <p class="tags">
-        {% for tag in page.tags %}
-          <a href="{{ "/tags.html#" | append: tag | relative_url }}">{{ tag }}</a>
-        {% endfor %}
-      </p>
-    </div>
-  {% endif %}
 
 </article>

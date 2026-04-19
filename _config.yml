@@ -3,7 +3,7 @@ title: "alvians.com"
 email: contact@alvians.com
 description: >- # this means to ignore newlines until "baseurl:"
   Embedded System Engineer
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alviansm.github.io" # the base hostname & protocol for your site
 author: "Alvians Maulana"
 timezone: UTC
@@ -76,6 +76,17 @@ defaults:
       comments: false
       author: "Alvian Maulana"
       image: "assets/images/default-post.jpg"
+      sub_post: false
+  - scope:
+      path: "_posts/a-tour-of-cpp"
+      type: "posts"
+    values:
+      sub_post: true
+  - scope:
+      path: "_posts/cses-problem-set"
+      type: "posts"
+    values:
+      sub_post: true
   - scope:
       path: ""
     values:

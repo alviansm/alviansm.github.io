@@ -14,7 +14,6 @@ Sometimes when we want to ship our apps while we use an SQLite for the database 
 ## 🧭 <span id="outline">Outline</span>
 - [Prerequisite](#prerequisite)
 - [The Steps](#the-steps)
-  - [Prepare the Toolchain](#prepare-the-toolchain)
   - [Generate SQLCipher Amalgamation](#generate-sqlcipher-amalgamation)
   - [Prepare Qt Build Environment](#prepare-qt-build-environment)
   - [Configure the Plugin](#configure-the-plugin)
@@ -33,17 +32,15 @@ Sometimes when we want to ship our apps while we use an SQLite for the database 
 - MSVC2022 x64
 - Maybe SQLite DB Browser for a GUI to open your DB
 
-Or any equivalent tools in your choice of toolchain. In my case, I am building on Windows, so that’s my choice of tools. I assume you already know how to setup in your local machine.
+Or any equivalent tools in your choice of toolchain. In my case, I am building on Windows, so that’s my choice of tools.
 
 As per writing of this article, I use Qt 6.8.3 since it seems 6.8.0 but prior my tool choice, there is a bug if we want to build Qt from source, but we need partial feature such as database driver. Qt will ask for project bom and they decided that its required as per 6.8, but when we build a partial feature such as the driver, we wont have that meta information. Unless if you want to tweak around, I suggest just use the 6.8.3. I’ve trial and error this experience. I used the 6.8.0 initially.
 
-Another thing that I need to denote is that, I use SQLite Cipher since, in that version, there is no dependency that cause me a pain that I shouldn’t suffer, xoshiro. I have to lookup trough trial and error too for this one.
+Another thing that I need to denote is that, I use SQLite Cipher since, in that version, there is no dependency that cause me a pain that I shouldn’t suffer, xoshiro.
 
 Now, for the build process, we have to ensure that the toolchain is equivalent when we generate the SQL Cipher amalgamation, the Qt’s Sql Driver, and the Qt that we use to develop our app.
 
 ## <span id="the-steps">The Steps</span>
-### <span id="prepare-the-toolchain">Prepare the toolchain.</span>
-At this point, you should already know the toolchain that I mentioned. If not, there are tons of materials already in the internet, go find it, lookup to their docs. Or just use Gemini.
 
 ### <span id="generate-sqlcipher-amalgamation">Generate SQL Cipher Amalgamation</span>
 In the SQL Cipher source, make the amalgamation and the dynamic library by following their step. Make sure we use the same compiler, in my case it’s MSVC2022 that could be accessed via `x64 command prompt for developer` in Windows. They already give us the steps too in their github repo, and the important command for this, is `nmake /f makefile.msc`.
