@@ -11,7 +11,7 @@ image: assets/images/sqlcipher/jan-antonin-kolar-lRoX0shwjUQ-unsplash.jpg
 Sometimes when we want to ship our apps while we use an SQLite for the database and we don’t want end users to hack our app that rely on the DB, we need a method to safely store data even in the local machine. Unfortunately, SQLite doesn't have that feature, as for now.
 
 ---
-## 🧭 <span id="outline">Outline</span>
+## <span id="outline">Outline</span>
 - [Prerequisite](#prerequisite)
 - [The Steps](#the-steps)
   - [Generate SQLCipher Amalgamation](#generate-sqlcipher-amalgamation)
